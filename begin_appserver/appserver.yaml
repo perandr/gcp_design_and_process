@@ -1,0 +1,19 @@
+---
+resources:
+- name: appserver
+  type: compute.v1.instance
+  properties:
+    machineType: https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-2e1f466aa9d18e84/zones/us-west1-b/machineTypes/n1-standard-2
+    zone: us-west1-b
+    networkInterfaces:
+      - network: https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-2e1f466aa9d18e84/global/networks/default
+        accessConfigs:
+        - name: External_NAT
+          type: ONE_TO_ONE_NAT
+    disks:
+     - type: PERSISTENT
+       deviceName: boot
+       boot: true
+       autoDelete: true
+       initializeParams:
+         sourceImage: https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/images/ubuntu-minimal-1904-disco-v20190814
