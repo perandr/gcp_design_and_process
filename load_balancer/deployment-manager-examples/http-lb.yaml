@@ -3,11 +3,8 @@ imports:
   - path: install-echo.sh
     name: startup-script
   - path: lb-lab-bucket.jinja
+  - path: firewall-allow-http.jinja
 resources:
-  - name: lb-lab-bucket
-    type: lb-lab-bucket.jinja
-    properties:
-      zone: us-west1-b
   - name: echo
     type: http-lb-service.jinja
     properties:

@@ -1,0 +1,9 @@
+resources:
+- name: allow-http-fw-rule
+  type: compute.v1.firewall
+  properties:
+    sourceRanges: ["130.211.0.0/22", "35.191.0.0/16"]
+    targetTags: ["http"]
+    allowed:
+    - IPProtocol: TCP
+      ports: ["80"]
