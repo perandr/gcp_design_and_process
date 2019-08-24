@@ -2,7 +2,12 @@ imports:
   - path: instance.jinja
   - path: install-echo.sh
     name: startup-script
+  - path: lb-lab-bucket.jinja
 resources:
+  - name: lb-lab-bucket
+    type: lb-lab-bucket.jinja
+    properties:
+      zone: us-west1-b
   - name: instance
     type: instance.jinja
     properties:
