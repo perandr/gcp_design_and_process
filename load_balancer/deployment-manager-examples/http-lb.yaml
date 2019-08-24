@@ -2,13 +2,18 @@ imports:
   - path: http-lb-service.jinja
   - path: install-echo.sh
     name: startup-script
+  - path: lb-lab-bucket.jinja
 resources:
+  - name: lb-lab-bucket
+    type: lb-lab-bucket.jinja
+    properties:
+      zone: us-west1-b
   - name: echo
     type: http-lb-service.jinja
     properties:
-      zone: [ZONE]
+      zone: us-west1-b
       tags:
         - http
-      metadata:
-        - key: echo
-          value: https://storage.googleapis.com/[BUCKET]/echo-0.0.1.tar.gz
+      # metadata:
+      #   - key: echo
+      #     value: https://storage.googleapis.com/[BUCKET]/echo-0.0.1.tar.gz
