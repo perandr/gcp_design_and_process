@@ -1,0 +1,9 @@
+imports:
+  - path: lb-lab-bucket.jinja
+resources:
+  - name: lb-lab-bucket
+    type: lb-lab-bucket.jinja
+    properties:
+      zone: us-west1-b
+
+

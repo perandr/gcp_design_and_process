@@ -1,0 +1,13 @@
+info:
+  title: lb-lab-bucket 
+  author: perandr@gmail.com
+  description: Creates a bucket for lb-lab and makes it with public 
+  version: 0.1
+imports:
+  - path: lb-lab-bucket.jinja
+required:
+  - zone
+properties:
+  zone:
+    type: string
+    description: i.e. us-east1-d

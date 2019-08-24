@@ -1,0 +1,21 @@
+{% set id = env["deployment"] %}
+{# resources:
+- name: {{ id }}-bucket-acl
+  type: storage.v1.bucketAccessControl
+  properties:
+ #}
+
+resources:
+- name: {{ id }}-bucket
+  type: storage.v1.bucket
+  properties:
+    storageClass: STANDARD
+    acl:
+       - entity: allUsers
+         role: READER
+
+outputs:
+  - name: bucketName
+    value: http://$({{ id }}-bucket-acl)
+
+
