@@ -14,9 +14,9 @@ resources:
             value: |
               {{ imports['startup-script']|indent(14) }}
           {% endif %}
-          {% for i in properties["metadata"] %}
+          {# {% for i in properties["metadata"] %}
           - {{ i }}
-          {% endfor %}
+          {% endfor %} #}
           metadata: 
            - key: echo
              value: https://storage.googleapis.com/$(bucketName)/echo-0.0.1.tar.gz
