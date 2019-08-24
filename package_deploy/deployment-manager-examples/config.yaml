@@ -11,4 +11,4 @@ resources:
         - http
       metadata:
         - key: echo
-          value: https://storage.googleapis.com/[BUCKET]/echo-0.0.1.tar.gz
+          value: https://storage.googleapis.com/echo-app/echo-0.0.1.tar.gz
