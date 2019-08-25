@@ -7,6 +7,10 @@ imports:
 resources:
   - name: app-bucket
     type: lb-lab-bucket.jinja
+    properties:
+      sourceBucket: gcp-cert-share
+      sourceObjects:
+        - file: echo-0.0.1.tar.gz
   - name: allow-http-rule
     type: firewall-allow-http.jinja
   - name: echo

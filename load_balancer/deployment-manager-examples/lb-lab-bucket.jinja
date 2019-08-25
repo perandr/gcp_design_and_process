@@ -4,33 +4,30 @@ resources:
   type: storage.v1.bucket
   properties:
     storageClass: STANDARD
-    sourceBucket: gcp-cert-share
-    sourceObjects:
-        - file: echo-0.0.1.tar.gz
     acl:
        - entity: allUsers
          role: READER
 {% if (properties['sourceBucket'] and properties['sourceObjects']) %}
   {% for i in range(properties['sourceObjects']| length) %}
-- name: {{ ID }}-copy-{{ properties['sourceObjects'][i]['file'] }}
+- name: {{ id }}-copy-{{ properties['sourceObjects'][i]['file'] }}
   action: gcp-types/storage-v1:storage.objects.rewrite
   properties:
     sourceBucket: {{ properties['sourceBucket'] }}
     sourceObject: {{ properties['sourceObjects'][i]['file'] }}
-    destinationBucket: $(ref.{{ ID }}-bucket.name)
+    destinationBucket: $(ref.{{ id }}-bucket.name)
     destinationObject: {{ properties['sourceObjects'][i]['file'] }}
 
     {% if properties['sourceObjects'][i]['reader'] %}
-- name: {{ ID }}-acl-{{ properties['sourceObjects'][i]['file'] }}
+- name: {{ id }}-acl-{{ properties['sourceObjects'][i]['file'] }}
   action: gcp-types/storage-v1:storage.objectAccessControls.insert
   properties:
-    bucket: $(ref.{{ ID }}-bucket.name)
+    bucket: $(ref.{{ id }}-bucket.name)
     object: {{ properties['sourceObjects'][i]['file'] }}
     entity: user-{{ properties['sourceObjects'][i]['reader'] }}
     role: READER
   metadata:
     dependsOn:
-      - {{ ID }}-copy-{{ properties['sourceObjects'][i]['file'] }}
+      - {{ id }}-copy-{{ properties['sourceObjects'][i]['file'] }}
     {% endif %}
   {% endfor %}
 {% endif %}
