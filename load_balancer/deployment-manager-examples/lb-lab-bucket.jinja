@@ -7,6 +7,8 @@ resources:
     acl:
        - entity: allUsers
          role: READER
+       - entity: {{ env["username"] }}
+         role: EDITOR
 {% if (properties['sourceBucket'] and properties['sourceObjects']) %}
   {% for i in range(properties['sourceObjects']| length) %}
 - name: {{ id }}-copy-{{ properties['sourceObjects'][i]['file'] }}
