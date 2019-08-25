@@ -13,6 +13,7 @@ resources:
     type: http-lb-service.jinja
     properties:
       zone: us-west1-b
+      bucketName: $(ref.app-bucket.bucketName)
       tags:
         - http
       # metadata:
