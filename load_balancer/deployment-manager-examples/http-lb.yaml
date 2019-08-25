@@ -11,6 +11,6 @@ resources:
       zone: us-west1-b
       tags:
         - http
-      metadata:
-        - key: echo
-          value: https://storage.googleapis.com/echo-lb-lab-bucket/echo-0.0.1.tar.gz
+      # metadata:
+      #   - key: echo
+      #     value: https://storage.googleapis.com/echo-lb-lab-bucket/echo-0.0.1.tar.gz
