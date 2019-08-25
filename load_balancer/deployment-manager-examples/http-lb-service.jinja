@@ -17,8 +17,8 @@ resources:
           {# {% for i in properties["metadata"] %}
           - {{ i }}
           {% endfor %} #}
-           - key: echo
-             value: https://storage.googleapis.com/$({{ bucketName }})/echo-0.0.1.tar.gz
+          - key: echo
+            value: https://storage.googleapis.com/{{ bucketName }}/echo-0.0.1.tar.gz
       disks:
         - deviceName: boot
           boot: true
