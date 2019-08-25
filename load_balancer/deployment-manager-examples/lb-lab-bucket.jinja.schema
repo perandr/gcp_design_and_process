@@ -5,9 +5,3 @@ info:
   version: 0.1
 imports:
   - path: lb-lab-bucket.jinja
-required:
-  - zone
-properties:
-  zone:
-    type: string
-    description: i.e. us-east1-d
