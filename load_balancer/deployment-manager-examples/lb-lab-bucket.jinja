@@ -9,9 +9,8 @@ resources:
     acl:
        - entity: allUsers
          role: READER
-
 outputs:
   - name: bucketName
-    value: {{ id }}-bucket
+    value: $(ref.{{ id }}-bucket.name)
 
 
