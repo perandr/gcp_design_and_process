@@ -5,7 +5,7 @@ imports:
   - path: lb-lab-bucket.jinja
   - path: firewall-allow-http.jinja
 resources:
-  - name: app-bucket
+  # - name: app-bucket
     # type: lb-lab-bucket.jinja
     # properties:
     #   sourceBucket: gcp-cert-share
