@@ -5,6 +5,10 @@ imports:
   - path: lb-lab-bucket.jinja
   - path: firewall-allow-http.jinja
 resources:
+  - name: app-bucket
+    type: lb-lab-bucket.jinja
+  - name: allow-http-rule
+    type: firewall-allow-http.jinja
   - name: echo
     type: http-lb-service.jinja
     properties:
